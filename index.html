@@ -153,10 +153,12 @@
 
     .writing-layout {
       display: grid;
-      grid-template-columns: minmax(140px, 0.45fr) minmax(0, 1.55fr);
+      grid-template-columns: minmax(0, 1.7fr) minmax(240px, 0.9fr);
       gap: 1rem;
       align-items: start;
     }
+
+    .writing-side { display: grid; gap: 1rem; align-content: start; }
 
     .timer-card {
       padding: 1rem;
@@ -165,6 +167,9 @@
     }
 
     .timer-card .eyebrow { color: var(--muted); }
+
+    .timer-card .primary { margin-top: 0.75rem; }
+    .timer-state { margin: 0.75rem 0 0; color: var(--muted); }
 
     .timer-value {
       display: block;
@@ -211,6 +216,8 @@
     .language-list strong { color: var(--blue-dark); }
     .word-kind { color: var(--muted); font-size: 0.88rem; }
 
+    .writing-side details { margin: 0; }
+
     .writing-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
     .fine-print { margin: 0.75rem 0 0; color: var(--muted); font-size: 0.9rem; }
     [hidden] { display: none !important; }
@@ -227,17 +234,18 @@
       border: 0;
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 720px) {
       .page { width: min(100% - 1.25rem, 880px); padding-top: 0.65rem; }
       .prompt-grid, .writing-layout { grid-template-columns: 1fr; }
       .timer-card {
         display: grid;
-        grid-template-columns: auto 1fr;
+        grid-template-columns: minmax(0, 1fr) auto;
         align-items: center;
         gap: 0.25rem 1rem;
       }
       .timer-card .eyebrow, .timer-value { margin: 0; }
-      .timer-message { grid-column: 1 / -1; }
+      .timer-card .primary, .timer-state, .timer-message { grid-column: 1 / -1; }
+      .timer-card .primary { width: 100%; }
       .writing-actions > button { width: 100%; }
     }
   </style>
@@ -263,15 +271,23 @@
 
     <section class="stage" id="writing-stage" aria-labelledby="writing-title" hidden>
       <div class="writing-layout">
-        <aside class="timer-card" aria-label="Writing timer">
-          <p class="eyebrow">Time remaining</p>
-          <time class="timer-value" id="timer-value" role="timer" aria-live="off">15:00</time>
-          <p class="timer-message" id="timer-message" role="status" aria-live="polite" hidden></p>
-        </aside>
-
-        <div>
+        <div class="writing-main">
           <h2 id="writing-title" tabindex="-1"></h2>
           <p class="writing-prompt" id="writing-prompt"></p>
+
+          <div class="writing-actions">
+            <button class="secondary" id="choose-another" type="button">Choose another task</button>
+          </div>
+        </div>
+
+        <aside class="writing-side" aria-label="Writing support">
+          <div class="timer-card" role="group" aria-label="Writing timer">
+            <p class="eyebrow">Time left</p>
+            <time class="timer-value" id="timer-value" role="timer" aria-live="off" tabindex="-1">15:00</time>
+            <button class="primary" id="start-timer" type="button">Start timer</button>
+            <p class="timer-state" id="timer-state" role="status" aria-live="polite" hidden></p>
+            <p class="timer-message" id="timer-message" role="status" aria-live="polite" hidden></p>
+          </div>
 
           <details id="language-details">
             <summary>Optional words and phrases</summary>
@@ -280,11 +296,7 @@
               <ul class="language-list" id="language-list"></ul>
             </div>
           </details>
-
-          <div class="writing-actions">
-            <button class="secondary" id="choose-another" type="button">Choose another task</button>
-          </div>
-        </div>
+        </aside>
       </div>
     </section>
 
@@ -1053,6 +1065,8 @@
     const writingStage = document.querySelector("#writing-stage");
     const promptOptions = document.querySelector("#prompt-options");
     const timerValue = document.querySelector("#timer-value");
+    const startTimerButton = document.querySelector("#start-timer");
+    const timerState = document.querySelector("#timer-state");
     const timerMessage = document.querySelector("#timer-message");
     const languageDetails = document.querySelector("#language-details");
     const languageList = document.querySelector("#language-list");
@@ -1126,18 +1140,25 @@
       document.querySelector("#writing-prompt").textContent = item.prompt;
       renderLanguage(item.language);
       languageDetails.open = false;
+      startTimerButton.hidden = false;
+      timerState.hidden = true;
+      timerState.textContent = "";
       timerMessage.hidden = true;
       timerMessage.textContent = "";
       timerValue.textContent = "15:00";
       setView("writing");
       document.querySelector("#writing-title").focus();
-      startTimer();
     }
 
     function startTimer() {
+      if (timerDeadline !== 0) return;
       timerDeadline = Date.now() + 15 * 60 * 1000;
       updateTimer();
       timerInterval = window.setInterval(updateTimer, 1000);
+      startTimerButton.hidden = true;
+      timerState.textContent = "Timer started.";
+      timerState.hidden = false;
+      timerValue.focus();
     }
 
     function stopTimer() {
@@ -1157,6 +1178,7 @@
 
       if (remaining === 0) {
         stopTimer();
+        timerState.hidden = true;
         timerMessage.hidden = false;
         timerMessage.textContent = "15 minutes are up. Stop or keep writing.";
       }
@@ -1178,6 +1200,8 @@
       setView("prompts");
       document.querySelector("#prompt-stage-title").focus();
     });
+
+    startTimerButton.addEventListener("click", startTimer);
 
     document.addEventListener("visibilitychange", () => {
       if (!document.hidden) updateTimer();
