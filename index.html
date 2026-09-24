@@ -440,6 +440,614 @@
         ]
       }
     ];
+    prompts.push(
+      {
+        id: "article-repair-cafes",
+        format: "Article",
+        prompt: "A community magazine is preparing an issue on repair cafés. As a volunteer at one, write an article for local residents to encourage them to try it. Explain how the café works, describe one benefit, and suggest an item people could bring.",
+        language: [
+          { term: "repairable", kind: "adjective", meaning: "possible to fix when damaged" },
+          { term: "durable", kind: "adjective", meaning: "able to last through regular use" },
+          { term: "restore", kind: "verb", meaning: "return something to good condition" },
+          { term: "take apart", kind: "phrase", meaning: "separate something into its parts" },
+          { term: "extend the life of", kind: "phrase", meaning: "keep something useful for longer" }
+        ]
+      },
+      {
+        id: "article-language-exchange",
+        format: "Article",
+        prompt: "The university magazine is collecting articles on language-exchange groups. As a student who has attended one, write an article for fellow students about what they offer. Describe how a session works, explain what participants learn, and suggest how a new member could join.",
+        language: [
+          { term: "exchange", kind: "noun", meaning: "an activity where people share something with each other" },
+          { term: "fluency", kind: "noun", meaning: "the ability to speak smoothly and easily" },
+          { term: "informal", kind: "adjective", meaning: "relaxed and not highly structured" },
+          { term: "conversation partner", kind: "noun phrase", meaning: "someone you practise speaking with" },
+          { term: "break the ice", kind: "phrase", meaning: "make people feel more comfortable when they first meet" }
+        ]
+      },
+      {
+        id: "article-rest-places",
+        format: "Article",
+        prompt: "A city newsletter invites articles about places to pause during a busy day. As someone who uses one, write an article for local residents introducing it as a useful option. Describe what it offers, explain who benefits, and suggest how it could welcome more people.",
+        language: [
+          { term: "respite", kind: "noun", meaning: "a short period of rest or relief" },
+          { term: "amenity", kind: "noun", meaning: "a useful feature of a place" },
+          { term: "tranquil", kind: "adjective", meaning: "quiet and peaceful" },
+          { term: "accessible", kind: "adjective", meaning: "easy for people to enter and use" },
+          { term: "make space for", kind: "phrase", meaning: "leave room to include someone or something" }
+        ]
+      },
+      {
+        id: "article-online-tutorials",
+        format: "Article",
+        prompt: "The student magazine is exploring learning through online tutorials. As a student who has used one, write an article for fellow students about its value. Describe a useful tutorial, assess its limits, and explain how to use it well.",
+        language: [
+          { term: "tutorial", kind: "noun", meaning: "a lesson that explains how to do something" },
+          { term: "self-paced", kind: "adjective", meaning: "done at a speed chosen by the learner" },
+          { term: "assess", kind: "verb", meaning: "judge the value or quality of something" },
+          { term: "reliable source", kind: "noun phrase", meaning: "a source that gives trustworthy information" },
+          { term: "retain information", kind: "phrase", meaning: "remember what you have learned" }
+        ]
+      },
+      {
+        id: "article-responsible-visits",
+        format: "Article",
+        prompt: "A travel magazine is preparing a guide to responsible visits to nearby towns. As a visitor who knows one town, write an article for travellers. Describe one attraction, explain how visitors can respect local life, and suggest how they can support the community.",
+        language: [
+          { term: "responsible tourism", kind: "noun phrase", meaning: "travel that respects local people and places" },
+          { term: "custom", kind: "noun", meaning: "a usual way of behaving in a place or group" },
+          { term: "considerate", kind: "adjective", meaning: "careful not to upset or inconvenience others" },
+          { term: "local economy", kind: "noun phrase", meaning: "business and work in a particular area" },
+          { term: "minimise the impact", kind: "phrase", meaning: "make a negative effect as small as possible" }
+        ]
+      },
+      {
+        id: "article-local-markets",
+        format: "Article",
+        prompt: "A community newsletter is planning an issue on local markets. As someone who visits one, write an article for residents about its value. Describe what people can find there, explain how it serves the area, and suggest how more residents could benefit.",
+        language: [
+          { term: "stall", kind: "noun", meaning: "a small place where goods are sold" },
+          { term: "produce", kind: "noun", meaning: "food grown or made for sale" },
+          { term: "seasonal", kind: "adjective", meaning: "available or suitable at a particular time of year" },
+          { term: "source locally", kind: "phrase", meaning: "buy goods from nearby producers" },
+          { term: "livelihood", kind: "noun", meaning: "work that provides a person with money to live" }
+        ]
+      },
+      {
+        id: "article-skill-sharing",
+        format: "Article",
+        prompt: "The student magazine invites articles about people sharing skills across generations. As someone who has taken part, write an article for students. Describe the activity, explain what each group gains, and suggest how others could join.",
+        language: [
+          { term: "intergenerational", kind: "adjective", meaning: "involving people of different age groups" },
+          { term: "reciprocal", kind: "adjective", meaning: "given and received by each side" },
+          { term: "mentor", kind: "noun", meaning: "someone who gives advice and support" },
+          { term: "perspective", kind: "noun", meaning: "a way of seeing or understanding something" },
+          { term: "pass on a skill", kind: "phrase", meaning: "teach a skill to another person" }
+        ]
+      },
+      {
+        id: "article-small-museums",
+        format: "Article",
+        prompt: "A local arts magazine is preparing a guide to small museums. As a visitor to one, write an article for people planning a day out. Describe one feature, explain what makes it worth visiting, and say who is likely to enjoy it.",
+        language: [
+          { term: "exhibit", kind: "noun", meaning: "an object or group of objects shown to visitors" },
+          { term: "artefact", kind: "noun", meaning: "an object made or used by people in the past" },
+          { term: "curator", kind: "noun", meaning: "a person who selects and cares for museum objects" },
+          { term: "interpretation", kind: "noun", meaning: "an explanation of what something means" },
+          { term: "well-preserved", kind: "adjective", meaning: "kept in good condition" }
+        ]
+      },
+      {
+        id: "article-group-projects",
+        format: "Article",
+        prompt: "The university magazine asks students how to make group projects work well. As a student who has completed one, write an article for new students. Describe one challenge, explain how your group handled it, and suggest a useful approach.",
+        language: [
+          { term: "delegate", kind: "verb", meaning: "give different tasks to different people" },
+          { term: "coordinate", kind: "verb", meaning: "organise people or activities so they work well together" },
+          { term: "contribution", kind: "noun", meaning: "something a person adds to a shared task" },
+          { term: "consensus", kind: "noun", meaning: "general agreement within a group" },
+          { term: "stay on track", kind: "phrase", meaning: "continue to make progress towards a goal" }
+        ]
+      },
+      {
+        id: "article-neighbourhood-gardens",
+        format: "Article",
+        prompt: "A community magazine is looking at neighbourhood gardens. As a volunteer in one, write an article for local residents. Describe how people use the garden, explain what it adds to the neighbourhood, and suggest how new volunteers can help.",
+        language: [
+          { term: "cultivate", kind: "verb", meaning: "prepare land and grow plants" },
+          { term: "yield", kind: "noun", meaning: "the amount of crops produced" },
+          { term: "biodiversity", kind: "noun", meaning: "the variety of plants and animals in an area" },
+          { term: "plot", kind: "noun", meaning: "a small area of land used for growing plants" },
+          { term: "tend to", kind: "phrase", meaning: "look after something regularly" }
+        ]
+      },
+      {
+        id: "article-reading-groups",
+        format: "Article",
+        prompt: "A university magazine invites articles about reading groups. As a member of one, write an article for fellow students. Explain how the group chooses what to read, describe one benefit of discussion, and suggest how new members can join.",
+        language: [
+          { term: "discussion", kind: "noun", meaning: "a conversation in which people share ideas" },
+          { term: "interpretation", kind: "noun", meaning: "a person's understanding of a text or idea" },
+          { term: "perspective", kind: "noun", meaning: "a way of seeing or understanding something" },
+          { term: "thought-provoking", kind: "adjective", meaning: "making people think carefully" },
+          { term: "lend itself to", kind: "phrase", meaning: "be suitable for a particular use" }
+        ]
+      },
+      {
+        id: "article-public-speaking-clubs",
+        format: "Article",
+        prompt: "The student magazine is exploring how clubs can help students practise public speaking. As someone who has spoken at a club event, write an article for fellow students. Describe how newcomers take part, explain what skills develop, and suggest how to manage nerves.",
+        language: [
+          { term: "composure", kind: "noun", meaning: "calm control of your feelings and behaviour" },
+          { term: "articulate", kind: "verb", meaning: "express an idea clearly in words" },
+          { term: "stage fright", kind: "noun", meaning: "nervousness before speaking or performing in public" },
+          { term: "concise", kind: "adjective", meaning: "short but clear" },
+          { term: "address an audience", kind: "phrase", meaning: "speak to a group of people" }
+        ]
+      }
+    );
+    prompts.push(
+      {
+        id: "report-careers-events",
+        format: "Report",
+        prompt: "The university careers team is reviewing employer events. As a student representative, write a report for team members to help them plan next year. Assess current events, identify which students they fail to reach, and recommend one change.",
+        language: [
+          { term: "outreach", kind: "noun", meaning: "effort to contact and involve people" },
+          { term: "attendance", kind: "noun", meaning: "the number of people who go to an event" },
+          { term: "networking", kind: "noun", meaning: "meeting people to share information or build work contacts" },
+          { term: "sector", kind: "noun", meaning: "a particular area of work or activity" },
+          { term: "reach a wider group", kind: "phrase", meaning: "involve more types of people" }
+        ]
+      },
+      {
+        id: "report-evening-buses",
+        format: "Report",
+        prompt: "The city transport panel is reviewing evening bus links used by students and workers. As a regular passenger, write a report for panel members to guide service changes. Assess current coverage, identify a gap, and recommend how the service could improve.",
+        language: [
+          { term: "frequency", kind: "noun", meaning: "how often a service runs" },
+          { term: "coverage", kind: "noun", meaning: "the places or people reached by a service" },
+          { term: "timetable", kind: "noun", meaning: "a list of the times when transport runs" },
+          { term: "passenger", kind: "noun", meaning: "someone who travels in a vehicle" },
+          { term: "address a gap", kind: "phrase", meaning: "take action to improve a missing or weak part" }
+        ]
+      },
+      {
+        id: "report-museum-information",
+        format: "Report",
+        prompt: "The museum director wants to improve visitor information. As a volunteer guide, write a report for the director. Evaluate the signs and visitor materials, identify what is unclear, and recommend changes for visitors with different needs.",
+        language: [
+          { term: "signage", kind: "noun", meaning: "signs used to give information or directions" },
+          { term: "wayfinding", kind: "noun", meaning: "information that helps people find places" },
+          { term: "legible", kind: "adjective", meaning: "clear and easy to read" },
+          { term: "visitor information", kind: "noun phrase", meaning: "details that help people plan or make a visit" },
+          { term: "cater for", kind: "phrase", meaning: "provide what a person or group needs" }
+        ]
+      },
+      {
+        id: "report-course-feedback",
+        format: "Report",
+        prompt: "The programme committee is reviewing how students give feedback on courses. As a course representative, write a report for committee members. Assess current feedback methods, explain why some students do not use them, and recommend an improvement.",
+        language: [
+          { term: "feedback", kind: "noun", meaning: "comments that help someone improve" },
+          { term: "response rate", kind: "noun phrase", meaning: "the share of people who reply to a request" },
+          { term: "anonymous", kind: "adjective", meaning: "with no name or identity given" },
+          { term: "channel", kind: "noun", meaning: "a way to send or receive information" },
+          { term: "act on feedback", kind: "phrase", meaning: "make changes in response to comments" }
+        ]
+      },
+      {
+        id: "report-drop-in-study-sessions",
+        format: "Report",
+        prompt: "The university support team is reviewing drop-in study sessions. As a student who has attended, write a report for team leaders to guide next term's sessions. Describe what works, identify a barrier to attendance, and recommend a change.",
+        language: [
+          { term: "facilitator", kind: "noun", meaning: "someone who helps a group work well" },
+          { term: "drop-in", kind: "adjective", meaning: "available without booking in advance" },
+          { term: "barrier", kind: "noun", meaning: "something that makes an activity difficult to join" },
+          { term: "conducive to", kind: "phrase", meaning: "helpful for a particular activity" },
+          { term: "attendance", kind: "noun", meaning: "the number of people who take part" }
+        ]
+      },
+      {
+        id: "report-festival-access",
+        format: "Report",
+        prompt: "A local festival board is reviewing access for visitors. As a volunteer, write a report for board members to help them plan the next festival. Assess current arrangements, identify one group they do not serve well, and recommend an improvement.",
+        language: [
+          { term: "access", kind: "noun", meaning: "the ability to enter or use a place or service" },
+          { term: "provision", kind: "noun", meaning: "something supplied or made available" },
+          { term: "accommodate", kind: "verb", meaning: "make enough space or provide what someone needs" },
+          { term: "mobility", kind: "noun", meaning: "the ability to move around" },
+          { term: "remove a barrier", kind: "phrase", meaning: "make it easier for someone to take part" }
+        ]
+      },
+      {
+        id: "report-sports-centre-programme",
+        format: "Report",
+        prompt: "The community sports centre is deciding which activities to run at quieter times. As a regular visitor, write a report for centre managers. Describe who currently attends, identify an unmet need, and recommend one activity.",
+        language: [
+          { term: "off-peak", kind: "adjective", meaning: "at a time when fewer people use a service" },
+          { term: "capacity", kind: "noun", meaning: "the number of people a place can hold" },
+          { term: "participation", kind: "noun", meaning: "the act of taking part in an activity" },
+          { term: "programme", kind: "noun", meaning: "a planned set of activities" },
+          { term: "make use of", kind: "phrase", meaning: "use something that is available" }
+        ]
+      },
+      {
+        id: "report-placement-preparation",
+        format: "Report",
+        prompt: "The university is reviewing its placement preparation sessions. As a student who completed a placement, write a report for the programme director to guide future preparation. Evaluate the sessions, identify one missing area, and recommend a change.",
+        language: [
+          { term: "placement", kind: "noun", meaning: "a period of work experience as part of a course" },
+          { term: "induction", kind: "noun", meaning: "an introduction to a new job or organisation" },
+          { term: "preparedness", kind: "noun", meaning: "the state of being ready for something" },
+          { term: "mentor", kind: "noun", meaning: "someone who gives advice and support" },
+          { term: "bridge a gap", kind: "phrase", meaning: "connect two things that are not well linked" }
+        ]
+      },
+      {
+        id: "report-arts-grant-support",
+        format: "Report",
+        prompt: "The regional arts council is reviewing support for first-time event organisers. As a member of a local arts group, write a report for council members. Assess the guidance available, identify a difficulty for new organisers, and recommend an improvement.",
+        language: [
+          { term: "grant", kind: "noun", meaning: "money given for a particular purpose" },
+          { term: "eligibility", kind: "noun", meaning: "the state of meeting the rules to apply" },
+          { term: "first-time", kind: "adjective", meaning: "doing something for the first time" },
+          { term: "guidance", kind: "noun", meaning: "advice about how to do something" },
+          { term: "application process", kind: "noun phrase", meaning: "the steps needed to apply for something" }
+        ]
+      },
+      {
+        id: "report-wellbeing-workshops",
+        format: "Report",
+        prompt: "The student wellbeing team is reviewing its lunchtime workshops. As a student who attended one, write a report for team leaders to help them plan future sessions. Assess their value, identify a barrier to attendance, and recommend a change.",
+        language: [
+          { term: "wellbeing", kind: "noun", meaning: "the state of being healthy and comfortable" },
+          { term: "accessible", kind: "adjective", meaning: "easy for people to attend or use" },
+          { term: "signposting", kind: "noun", meaning: "directions to useful information or support" },
+          { term: "attendance", kind: "noun", meaning: "the number of people who take part" },
+          { term: "on site", kind: "phrase", meaning: "at the place where an activity happens" }
+        ]
+      },
+      {
+        id: "report-visitor-centre-hours",
+        format: "Report",
+        prompt: "The town visitor centre is considering longer weekend opening hours. As a volunteer guide, write a report for the centre director to guide the decision. Assess visitor demand, identify who would benefit, and recommend suitable hours.",
+        language: [
+          { term: "footfall", kind: "noun", meaning: "the number of people who visit a place" },
+          { term: "opening hours", kind: "noun phrase", meaning: "the times when a place is open" },
+          { term: "peak", kind: "noun", meaning: "the busiest time" },
+          { term: "visitor", kind: "noun", meaning: "someone who goes to a place for a short time" },
+          { term: "extend provision", kind: "phrase", meaning: "make a service available for longer or to more people" }
+        ]
+      },
+      {
+        id: "report-roadwork-notices",
+        format: "Report",
+        prompt: "The city council is reviewing how it informs residents about road closures. As a regular cyclist, write a report for the transport team. Assess current notices, explain who may miss them, and recommend how to give clearer advance information.",
+        language: [
+          { term: "detour", kind: "noun", meaning: "a different route used to avoid a closed road" },
+          { term: "advance notice", kind: "noun phrase", meaning: "information given before something happens" },
+          { term: "disruption", kind: "noun", meaning: "a problem that interrupts a service or activity" },
+          { term: "signage", kind: "noun", meaning: "signs used to give information or directions" },
+          { term: "notify", kind: "verb", meaning: "give someone information about an event or change" }
+        ]
+      },
+      {
+        id: "report-digital-skills-workshops",
+        format: "Report",
+        prompt: "A community centre is reviewing its digital skills workshops. As a participant, write a report for centre managers to help them plan future sessions. Assess what learners can do after the workshops, identify a gap, and recommend a change.",
+        language: [
+          { term: "digital literacy", kind: "noun", meaning: "the ability to use digital tools and information" },
+          { term: "hands-on", kind: "adjective", meaning: "involving practical activity" },
+          { term: "step-by-step", kind: "adjective", meaning: "showing each stage in order" },
+          { term: "confidence", kind: "noun", meaning: "a feeling that you can do something well" },
+          { term: "independent", kind: "adjective", meaning: "able to do something without help" }
+        ]
+      }
+    );
+    prompts.push(
+      {
+        id: "review-audio-walking-tour",
+        format: "Review",
+        prompt: "A travel magazine invites reviews of audio walking tours. As a visitor who has tried one, write a review for people choosing a tour. Describe one section, assess how well it helps listeners understand the area, and say who would enjoy it.",
+        language: [
+          { term: "turn-by-turn", kind: "adjective", meaning: "giving directions one step at a time" },
+          { term: "narration", kind: "noun", meaning: "spoken words that explain a story or place" },
+          { term: "landmark", kind: "noun", meaning: "a well-known feature that helps people recognise a place" },
+          { term: "route", kind: "noun", meaning: "the way taken from one place to another" },
+          { term: "orient yourself", kind: "phrase", meaning: "work out where you are and which way to go" }
+        ]
+      },
+      {
+        id: "review-stage-adaptation",
+        format: "Review",
+        prompt: "A theatre magazine invites reviews of stage adaptations of well-known stories. As an audience member, write a review for readers choosing a performance. Explain one change from the original story, assess its effect, and recommend the show to a type of audience.",
+        language: [
+          { term: "adaptation", kind: "noun", meaning: "a version of a story changed for another form" },
+          { term: "source text", kind: "noun phrase", meaning: "the original writing used to make a new version" },
+          { term: "staging", kind: "noun", meaning: "the way a performance is presented on stage" },
+          { term: "fidelity", kind: "noun", meaning: "how closely a version follows its source" },
+          { term: "reinterpret", kind: "verb", meaning: "present something in a new way" }
+        ]
+      },
+      {
+        id: "review-short-story-collection",
+        format: "Review",
+        prompt: "A student magazine invites reviews of short story collections. As a reader of one, write a review for students choosing their next book. Describe a story that stands out, assess the collection as a whole, and say who would enjoy it.",
+        language: [
+          { term: "collection", kind: "noun", meaning: "a group of stories or other works published together" },
+          { term: "protagonist", kind: "noun", meaning: "the main character in a story" },
+          { term: "compelling", kind: "adjective", meaning: "interesting enough to hold attention" },
+          { term: "pace", kind: "noun", meaning: "the speed at which a story develops" },
+          { term: "leave an impression", kind: "phrase", meaning: "be remembered or have an effect on someone" }
+        ]
+      },
+      {
+        id: "review-unusual-narrator-film",
+        format: "Review",
+        prompt: "A film magazine invites reviews of films that use an unusual narrator. As a viewer, write a review for readers choosing a film. Describe how the narrator shapes the story, assess whether this approach works, and say who may enjoy the film.",
+        language: [
+          { term: "narrator", kind: "noun", meaning: "the voice that tells a story" },
+          { term: "perspective", kind: "noun", meaning: "the position or point of view from which a story is told" },
+          { term: "unreliable", kind: "adjective", meaning: "not fully trustworthy" },
+          { term: "reveal", kind: "verb", meaning: "make information known" },
+          { term: "hold attention", kind: "phrase", meaning: "keep someone interested" }
+        ]
+      },
+      {
+        id: "review-recycled-art-exhibition",
+        format: "Review",
+        prompt: "A local arts magazine invites reviews of exhibitions made with recycled materials. As a visitor, write a review for readers planning a visit. Describe one work, assess how effectively the exhibition uses its materials, and say who would find it engaging.",
+        language: [
+          { term: "installation", kind: "noun", meaning: "a work of art arranged in a particular space" },
+          { term: "reclaimed", kind: "adjective", meaning: "used again after being thrown away or no longer needed" },
+          { term: "material", kind: "noun", meaning: "what something is made from" },
+          { term: "juxtapose", kind: "verb", meaning: "place things together so people notice their differences" },
+          { term: "provoke thought", kind: "phrase", meaning: "make people think carefully about an idea" }
+        ]
+      },
+      {
+        id: "review-astronomy-course",
+        format: "Review",
+        prompt: "An education magazine invites reviews of beginner online courses about astronomy. As a learner who completed one, write a review for people choosing a course. Assess its teaching approach, explain what learners need before starting, and recommend who should take it.",
+        language: [
+          { term: "self-paced", kind: "adjective", meaning: "done at a speed chosen by the learner" },
+          { term: "prerequisite", kind: "noun", meaning: "knowledge or skill needed before starting" },
+          { term: "astronomy", kind: "noun", meaning: "the study of stars, planets and space" },
+          { term: "illustrate", kind: "verb", meaning: "explain an idea with examples or pictures" },
+          { term: "beginner-friendly", kind: "adjective", meaning: "easy for someone new to a subject to use" }
+        ]
+      },
+      {
+        id: "review-local-history-podcast",
+        format: "Review",
+        prompt: "A community magazine invites reviews of podcasts about local history. As a listener, write a review for readers choosing a series. Explain one story it covers, assess how the presenters bring the past to life, and say who might enjoy it.",
+        language: [
+          { term: "episode", kind: "noun", meaning: "one programme in a series" },
+          { term: "archive", kind: "noun", meaning: "a collection of historical records" },
+          { term: "narrative", kind: "noun", meaning: "a story or account of events" },
+          { term: "bring to life", kind: "phrase", meaning: "make something seem real and interesting" },
+          { term: "credible source", kind: "noun phrase", meaning: "a source that can be trusted" }
+        ]
+      },
+      {
+        id: "review-birdwatching-app",
+        format: "Review",
+        prompt: "A nature magazine invites reviews of beginner birdwatching apps. As a new user, write a review for people choosing an app. Describe one feature, assess how useful it is outdoors, and recommend who may benefit from it.",
+        language: [
+          { term: "interface", kind: "noun", meaning: "the screens and controls a user works with" },
+          { term: "species", kind: "noun", meaning: "a group of similar plants or animals" },
+          { term: "identify", kind: "verb", meaning: "recognise and name something" },
+          { term: "location setting", kind: "noun phrase", meaning: "a feature that uses information about where you are" },
+          { term: "beginner-friendly", kind: "adjective", meaning: "easy for someone new to a subject to use" }
+        ]
+      },
+      {
+        id: "review-scenic-rail-journey",
+        format: "Review",
+        prompt: "A travel magazine invites reviews of scenic rail journeys. As a passenger who has made one, write a review for travellers choosing a route. Describe the scenery, assess the comfort and service, and say what type of traveller would enjoy the journey.",
+        language: [
+          { term: "carriage", kind: "noun", meaning: "one section of a train where passengers sit" },
+          { term: "scenic", kind: "adjective", meaning: "having attractive views" },
+          { term: "punctuality", kind: "noun", meaning: "the quality of arriving at the planned time" },
+          { term: "legroom", kind: "noun", meaning: "space for your legs when you sit" },
+          { term: "worthwhile", kind: "adjective", meaning: "useful or enjoyable enough to justify the time or cost" }
+        ]
+      },
+      {
+        id: "review-food-festival",
+        format: "Review",
+        prompt: "A local magazine invites reviews of food festivals. As a visitor, write a review for residents deciding whether to attend. Describe one attraction, assess the organisation, and say which visitors would enjoy the event.",
+        language: [
+          { term: "stall", kind: "noun", meaning: "a small place where goods or food are sold" },
+          { term: "sample", kind: "verb", meaning: "try a small amount of food or drink" },
+          { term: "variety", kind: "noun", meaning: "a range of different things" },
+          { term: "queue", kind: "noun", meaning: "a line of people waiting" },
+          { term: "lively atmosphere", kind: "noun phrase", meaning: "an active and enjoyable mood in a place" }
+        ]
+      },
+      {
+        id: "review-public-art-trail",
+        format: "Review",
+        prompt: "An arts newsletter invites reviews of public art trails. As someone who has completed one, write a review for visitors deciding whether to take part. Describe the route, assess how it connects the artworks, and say who would enjoy it.",
+        language: [
+          { term: "route", kind: "noun", meaning: "the way taken from one place to another" },
+          { term: "sculpture", kind: "noun", meaning: "a work of art made by shaping material" },
+          { term: "integrate", kind: "verb", meaning: "combine parts so they work as a whole" },
+          { term: "public realm", kind: "noun phrase", meaning: "places that people can use or visit" },
+          { term: "engaging", kind: "adjective", meaning: "interesting and able to hold attention" }
+        ]
+      },
+      {
+        id: "review-graphic-essays",
+        format: "Review",
+        prompt: "A design magazine invites reviews of graphic essays about city life. As a reader of one, write a review for people choosing what to read. Explain its subject, assess how words and images work together, and say who would find it useful.",
+        language: [
+          { term: "graphic essay", kind: "noun phrase", meaning: "a non-fiction story told with words and pictures" },
+          { term: "urban design", kind: "noun", meaning: "the planning and appearance of towns and cities" },
+          { term: "layout", kind: "noun", meaning: "the way words and images are arranged on a page" },
+          { term: "visual metaphor", kind: "noun phrase", meaning: "an image used to represent an idea" },
+          { term: "convey", kind: "verb", meaning: "communicate an idea or feeling" }
+        ]
+      },
+      {
+        id: "review-public-lecture",
+        format: "Review",
+        prompt: "A university magazine invites reviews of public lectures open to students. As an attendee, write a review for students deciding whether to attend future talks. Explain the subject, assess how clearly the speaker engaged the audience, and say who would benefit.",
+        language: [
+          { term: "lecturer", kind: "noun", meaning: "someone who gives a talk or teaches at a university" },
+          { term: "accessible", kind: "adjective", meaning: "easy to understand or use" },
+          { term: "engaging", kind: "adjective", meaning: "interesting and able to hold attention" },
+          { term: "evidence", kind: "noun", meaning: "facts or examples that support an idea" },
+          { term: "audience questions", kind: "noun phrase", meaning: "questions asked by people listening to a talk" }
+        ]
+      }
+    );
+    prompts.push(
+      {
+        id: "letter-independent-shops",
+        format: "Formal letter",
+        prompt: "The local newspaper invites letters on how to support independent shops. As a regular customer, write a formal letter to the editor for local readers. Describe one challenge local shops face, propose a way residents can help, and explain the likely benefit.",
+        language: [
+          { term: "independent retailer", kind: "noun phrase", meaning: "a shop owner who is not part of a large chain" },
+          { term: "local economy", kind: "noun phrase", meaning: "business and work in a particular area" },
+          { term: "footfall", kind: "noun", meaning: "the number of people who visit an area or shop" },
+          { term: "competitive", kind: "adjective", meaning: "able to attract customers compared with others" },
+          { term: "shop locally", kind: "phrase", meaning: "buy goods from businesses in your area" }
+        ]
+      },
+      {
+        id: "letter-public-water-fountains",
+        format: "Formal letter",
+        prompt: "The city council is asking residents where new public drinking fountains are needed. As someone who uses the parks, write a formal letter to the parks director. Identify a location, explain why it is needed, and recommend how to maintain it.",
+        language: [
+          { term: "refill point", kind: "noun phrase", meaning: "a place where people can fill a bottle with water" },
+          { term: "water supply", kind: "noun phrase", meaning: "the system that provides water" },
+          { term: "strategic placement", kind: "noun phrase", meaning: "a location chosen to be especially useful" },
+          { term: "upkeep", kind: "noun", meaning: "work needed to keep something in good condition" },
+          { term: "convenient", kind: "adjective", meaning: "easy to use or reach" }
+        ]
+      },
+      {
+        id: "letter-community-radio",
+        format: "Formal letter",
+        prompt: "The community radio station invites listener suggestions for featuring local voices. As a regular listener, write a formal letter to the programme director. Describe one group or topic that is missing, propose a segment, and explain how listeners could contribute.",
+        language: [
+          { term: "representation", kind: "noun", meaning: "the way people or groups are included and shown" },
+          { term: "contributor", kind: "noun", meaning: "someone who provides material for a programme" },
+          { term: "segment", kind: "noun", meaning: "one part of a larger programme" },
+          { term: "broadcast", kind: "verb", meaning: "send a programme to the public by radio or television" },
+          { term: "inclusive", kind: "adjective", meaning: "designed to involve different people" }
+        ]
+      },
+      {
+        id: "letter-information-for-newcomers",
+        format: "Formal letter",
+        prompt: "The city council is updating information for people who have just moved into the area. As a recent resident, write a formal letter to the public-information manager. Describe one difficulty you faced, recommend a change, and explain how it would help other newcomers.",
+        language: [
+          { term: "newcomer", kind: "noun", meaning: "someone who has recently arrived in a place or group" },
+          { term: "jargon-free", kind: "adjective", meaning: "using words that are easy for most people to understand" },
+          { term: "signpost", kind: "verb", meaning: "direct someone to useful information or support" },
+          { term: "orientation", kind: "noun", meaning: "information that helps someone understand a new place" },
+          { term: "accessible", kind: "adjective", meaning: "easy for people to understand or use" }
+        ]
+      },
+      {
+        id: "letter-evening-course-registration",
+        format: "Formal letter",
+        prompt: "An adult-learning centre is reviewing registration for evening courses. As a former student, write a formal letter to the centre director. Describe one problem with the current process, propose an improvement, and explain who would benefit.",
+        language: [
+          { term: "enrolment", kind: "noun", meaning: "the act of joining a course or organisation" },
+          { term: "eligibility", kind: "noun", meaning: "the state of meeting the rules to take part" },
+          { term: "timetable", kind: "noun", meaning: "a list of times when activities happen" },
+          { term: "flexible", kind: "adjective", meaning: "able to change to suit different needs" },
+          { term: "streamline", kind: "verb", meaning: "make a process simpler and more efficient" }
+        ]
+      },
+      {
+        id: "letter-car-free-street",
+        format: "Formal letter",
+        prompt: "The town council is considering a car-free street in the centre. As a resident who visits local businesses, write a formal letter to the planning committee. Describe how you use the street, assess one likely effect, and suggest a way to address a concern.",
+        language: [
+          { term: "pedestrianise", kind: "verb", meaning: "make a street mainly or only for people on foot" },
+          { term: "access", kind: "noun", meaning: "the ability to reach or enter a place" },
+          { term: "loading bay", kind: "noun phrase", meaning: "a place where vehicles can load or unload goods" },
+          { term: "trial period", kind: "noun phrase", meaning: "a limited time used to test a change" },
+          { term: "trade-off", kind: "noun", meaning: "a choice that gives one benefit but loses another" }
+        ]
+      },
+      {
+        id: "letter-online-consultation",
+        format: "Formal letter",
+        prompt: "The city council is testing a new online consultation site. As a resident who has used it, write a formal letter to the community-engagement officer. Describe what works, identify one barrier, and recommend a change to help more people take part.",
+        language: [
+          { term: "consultation", kind: "noun", meaning: "a process of asking people for their views" },
+          { term: "interface", kind: "noun", meaning: "the screens and controls a user works with" },
+          { term: "response", kind: "noun", meaning: "an answer or reaction to a question" },
+          { term: "representative", kind: "adjective", meaning: "including a fair range of people or views" },
+          { term: "submit feedback", kind: "phrase", meaning: "send comments for someone to consider" }
+        ]
+      },
+      {
+        id: "letter-screens-in-waiting-areas",
+        format: "Formal letter",
+        prompt: "A local newspaper invites letters about screens in public-service waiting areas. As a regular visitor, write a formal letter to the editor for readers. Describe one benefit or problem, propose a guideline, and explain how it may affect visitors.",
+        language: [
+          { term: "notification", kind: "noun", meaning: "a message that gives new information" },
+          { term: "privacy", kind: "noun", meaning: "the right to keep personal matters private" },
+          { term: "discreet", kind: "adjective", meaning: "not easy to notice or hear" },
+          { term: "queue", kind: "noun", meaning: "a line of people waiting" },
+          { term: "accommodate", kind: "verb", meaning: "provide enough space or suitable conditions for" }
+        ]
+      },
+      {
+        id: "letter-arts-workshop-building",
+        format: "Formal letter",
+        prompt: "The town council is considering turning a vacant warehouse into a shared arts workshop. As a local resident, write a formal letter to the planning officer. Explain a possible use, identify one concern, and recommend a condition for the plan.",
+        language: [
+          { term: "repurpose", kind: "verb", meaning: "use something for a different purpose" },
+          { term: "heritage", kind: "noun", meaning: "features of the past that a community values" },
+          { term: "feasibility", kind: "noun", meaning: "how possible it is to do something" },
+          { term: "shared workspace", kind: "noun phrase", meaning: "a place used by different people for work" },
+          { term: "preserve the character", kind: "phrase", meaning: "keep the features that make a place distinctive" }
+        ]
+      },
+      {
+        id: "letter-late-night-deliveries",
+        format: "Formal letter",
+        prompt: "The local newspaper is publishing views on late-night deliveries in residential streets. As a resident, write a formal letter to the editor for local readers. Describe how deliveries affect the area, propose a practical change, and explain its likely effect.",
+        language: [
+          { term: "delivery window", kind: "noun phrase", meaning: "the set hours when goods may be delivered" },
+          { term: "nuisance", kind: "noun", meaning: "something that causes difficulty or annoyance" },
+          { term: "residential", kind: "adjective", meaning: "used mainly for people to live in" },
+          { term: "mitigate", kind: "verb", meaning: "make a problem or harm less serious" },
+          { term: "enforce", kind: "verb", meaning: "make sure a rule is obeyed" }
+        ]
+      },
+      {
+        id: "letter-waste-sorting-guidance",
+        format: "Formal letter",
+        prompt: "The council is revising its instructions for sorting household waste. As a resident, write a formal letter to the environmental-services director. Describe one confusing instruction, suggest a clearer version, and explain how this could reduce sorting errors.",
+        language: [
+          { term: "recyclable", kind: "adjective", meaning: "able to be used again after processing" },
+          { term: "contamination", kind: "noun", meaning: "unwanted material mixed with something being recycled" },
+          { term: "disposal", kind: "noun", meaning: "the act of getting rid of something" },
+          { term: "sorting guide", kind: "noun phrase", meaning: "instructions for putting items into the right groups" },
+          { term: "clearly labelled", kind: "adjective", meaning: "marked with words that are easy to understand" }
+        ]
+      },
+      {
+        id: "letter-nature-reserve-paths",
+        format: "Formal letter",
+        prompt: "A nature reserve is reviewing paths during the nesting season. As a regular walker, write a formal letter to the reserve manager. Describe one concern, suggest how visitors could be guided, and explain how your proposal could protect wildlife while keeping paths open.",
+        language: [
+          { term: "nesting", kind: "adjective", meaning: "relating to birds making or using a nest" },
+          { term: "habitat", kind: "noun", meaning: "the natural place where a plant or animal lives" },
+          { term: "seasonal", kind: "adjective", meaning: "happening at a particular time of year" },
+          { term: "disturbance", kind: "noun", meaning: "an action that interrupts or upsets something" },
+          { term: "marked route", kind: "noun phrase", meaning: "a path shown with signs or symbols" }
+        ]
+      }
+    );
     const welcome = document.querySelector("#welcome");
     const promptStage = document.querySelector("#prompt-stage");
     const writingStage = document.querySelector("#writing-stage");
