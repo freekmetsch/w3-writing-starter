@@ -1,5 +1,7 @@
-# Writing 3: 15-minute writing start
+# Writing 3: 15-minute start
 
-[Open the optional writing starter](https://freekmetsch.github.io/w3-writing-starter/).
+This page offers two original C2 Proficiency Part 2-style tasks. Choose one. The page shows a 15-minute timer and five optional words or phrases.
 
-The page offers two everyday prompts, a 15-minute timer and five optional word or phrase ideas. Students write in their own document or on paper. The page does not collect or save their writing.
+Each task has a 280–320-word target. The timer marks a short start; it is not a deadline to finish the full task. Write on paper or in your own document. The page does not save your writing.
+
+This is not a full C2 Proficiency practice paper.

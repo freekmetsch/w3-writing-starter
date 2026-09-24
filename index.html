@@ -5,21 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
   <link rel="icon" href="data:,">
-  <title>Writing 3 · A 15-minute writing start</title>
+  <title>Writing 3 · C2 Part 2 practice</title>
   <style>
     :root {
       color-scheme: light;
       --ink: #202b34;
       --muted: #4c5b66;
       --paper: #ffffff;
-      --wash: #f3f1eb;
-      --line: #c8d1d5;
+      --wash: #f7f8f8;
+      --line: #b9c4ca;
       --blue: #2b526d;
       --blue-dark: #1d3c52;
       --blue-pale: #eaf0f3;
       --rust: #a8442d;
       --rust-pale: #f7ece7;
-      --shadow: 0 12px 32px rgb(32 43 52 / 8%);
       font-family: "Segoe UI", Arial, sans-serif;
       font-synthesis: none;
       text-rendering: optimizeLegibility;
@@ -33,7 +32,7 @@
       background: var(--wash);
       color: var(--ink);
       font-size: 1rem;
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     button, summary { font: inherit; }
@@ -41,7 +40,7 @@
     button {
       min-height: 48px;
       border: 2px solid transparent;
-      border-radius: 12px;
+      border-radius: 4px;
       cursor: pointer;
     }
 
@@ -54,77 +53,67 @@
     button:disabled { cursor: not-allowed; opacity: 0.65; }
 
     .page {
-      width: min(100% - 2rem, 960px);
+      width: min(100% - 2rem, 880px);
       margin: 0 auto;
-      padding: clamp(1.25rem, 4vw, 3rem) 0 3rem;
+      padding: clamp(1rem, 4vw, 2.5rem) 0 2rem;
     }
 
     .masthead {
-      padding: clamp(1.5rem, 5vw, 2.5rem);
-      border-left: 10px solid var(--rust);
-      border-radius: 16px;
-      background: var(--blue);
-      color: var(--paper);
-      box-shadow: var(--shadow);
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--blue);
     }
 
     .eyebrow {
-      margin: 0 0 0.35rem;
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      margin: 0 0 0.25rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
     }
 
     h1, h2, h3, p { margin-top: 0; }
 
     h1 {
-      max-width: 18ch;
-      margin-bottom: 0.65rem;
-      font-size: clamp(2rem, 6vw, 3.4rem);
-      line-height: 1.08;
+      margin-bottom: 0.25rem;
+      font-size: clamp(1.7rem, 5vw, 2.4rem);
+      line-height: 1.15;
     }
 
-    .masthead p:last-child { max-width: 66ch; margin-bottom: 0; }
+    .masthead p:last-child { margin-bottom: 0; }
 
     .stage {
-      margin-top: 1.25rem;
-      padding: clamp(1.25rem, 4vw, 2rem);
+      margin-top: 1rem;
+      padding: clamp(1rem, 4vw, 1.5rem);
       border: 1px solid var(--line);
-      border-radius: 16px;
       background: var(--paper);
-      box-shadow: var(--shadow);
     }
 
     .stage h2 {
-      margin-bottom: 0.35rem;
-      font-size: clamp(1.45rem, 4vw, 2rem);
+      margin-bottom: 0.75rem;
+      font-size: clamp(1.3rem, 4vw, 1.7rem);
       line-height: 1.2;
     }
-
-    .stage-intro { max-width: 66ch; color: var(--muted); }
 
     .primary {
       display: inline-flex;
       width: 100%;
       align-items: center;
       justify-content: center;
-      padding: 0.85rem 1.25rem;
+      padding: 0.7rem 1rem;
       background: var(--blue-dark);
       color: var(--paper);
-      font-size: 1.15rem;
-      font-weight: 800;
+      font-size: 1.05rem;
+      font-weight: 700;
       text-align: center;
     }
 
     .primary:hover { background: var(--blue); }
 
     .secondary {
-      padding: 0.55rem 0.9rem;
+      padding: 0.45rem 0.75rem;
       border-color: var(--blue);
       background: var(--paper);
       color: var(--blue-dark);
-      font-weight: 700;
+      font-weight: 600;
     }
 
     .secondary:hover { background: var(--blue-pale); }
@@ -132,15 +121,15 @@
     .prompt-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-      margin: 1.25rem 0;
+      gap: 0.75rem;
+      margin: 1rem 0;
     }
 
     .prompt-choice {
       display: block;
       width: 100%;
       min-height: 100%;
-      padding: 1.15rem;
+      padding: 1rem;
       border-color: var(--line);
       background: var(--paper);
       color: var(--ink);
@@ -154,9 +143,9 @@
 
     .prompt-choice strong {
       display: block;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
       color: var(--blue-dark);
-      font-size: 1.12rem;
+      font-size: 1rem;
       line-height: 1.35;
     }
 
@@ -164,72 +153,58 @@
 
     .writing-layout {
       display: grid;
-      grid-template-columns: minmax(190px, 0.65fr) minmax(0, 1.5fr);
-      gap: 1.25rem;
+      grid-template-columns: minmax(140px, 0.45fr) minmax(0, 1.55fr);
+      gap: 1rem;
       align-items: start;
     }
 
     .timer-card {
-      position: sticky;
-      top: 1rem;
-      padding: 1.25rem;
+      padding: 1rem;
       border: 1px solid var(--line);
-      border-top: 6px solid var(--rust);
-      border-radius: 14px;
-      background: var(--wash);
+      background: var(--paper);
     }
 
-    .timer-card .eyebrow { color: var(--blue-dark); }
+    .timer-card .eyebrow { color: var(--muted); }
 
     .timer-value {
       display: block;
-      margin: 0.15rem 0 0.45rem;
+      margin: 0.2rem 0 0;
       color: var(--blue-dark);
-      font-size: clamp(2.6rem, 8vw, 4rem);
+      font-size: clamp(2.2rem, 7vw, 3rem);
       font-variant-numeric: tabular-nums;
-      font-weight: 800;
+      font-weight: 700;
       line-height: 1;
     }
 
-    .timer-help, .fine-print { color: var(--muted); font-size: 0.92rem; }
-    .timer-help:last-child { margin-bottom: 0; }
-
     .timer-message {
-      margin: 0.9rem 0 0;
-      padding: 0.8rem;
+      margin: 0.75rem 0 0;
+      padding: 0.65rem;
       border-left: 4px solid var(--rust);
-      border-radius: 6px;
       background: var(--rust-pale);
-      font-weight: 700;
     }
 
-    .writing-prompt {
-      margin-bottom: 1.2rem;
-      font-size: 1.1rem;
-    }
+    .writing-prompt { margin-bottom: 1rem; }
 
     details {
-      margin: 1.25rem 0;
+      margin: 1rem 0;
       border: 1px solid var(--line);
-      border-radius: 12px;
-      background: #fbfaf7;
+      background: var(--paper);
     }
 
     summary {
       min-height: 48px;
-      padding: 0.7rem 0.9rem;
+      padding: 0.65rem 0.75rem;
       color: var(--blue-dark);
       cursor: pointer;
-      font-weight: 800;
+      font-weight: 700;
     }
 
-    .language-content { padding: 0 0.9rem 0.9rem; }
+    .language-content { padding: 0 0.75rem 0.75rem; }
     .language-content p { margin-bottom: 0.6rem; color: var(--muted); }
     .language-list { display: grid; gap: 0.55rem; margin: 0; padding: 0; list-style: none; }
 
     .language-list li {
-      padding: 0.65rem 0.75rem;
-      border-radius: 8px;
+      padding: 0.55rem 0.65rem;
       background: var(--blue-pale);
     }
 
@@ -237,7 +212,7 @@
     .word-kind { color: var(--muted); font-size: 0.88rem; }
 
     .writing-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-    .footnote { margin: 1rem 0 0; color: var(--muted); font-size: 0.9rem; }
+    .fine-print { margin: 0.75rem 0 0; color: var(--muted); font-size: 0.9rem; }
     [hidden] { display: none !important; }
 
     .sr-only {
@@ -253,10 +228,16 @@
     }
 
     @media (max-width: 640px) {
-      .page { width: min(100% - 1.25rem, 960px); padding-top: 0.65rem; }
-      .masthead { border-left-width: 7px; border-radius: 12px; }
+      .page { width: min(100% - 1.25rem, 880px); padding-top: 0.65rem; }
       .prompt-grid, .writing-layout { grid-template-columns: 1fr; }
-      .timer-card { position: static; }
+      .timer-card {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        gap: 0.25rem 1rem;
+      }
+      .timer-card .eyebrow, .timer-value { margin: 0; }
+      .timer-message { grid-column: 1 / -1; }
       .writing-actions > button { width: 100%; }
     }
   </style>
@@ -264,22 +245,20 @@
 <body>
   <main class="page">
     <header class="masthead">
-      <p class="eyebrow">Writing 3 · Optional practice</p>
-      <h1>A 15-minute writing start</h1>
-      <p>Choose one everyday prompt and start writing. Write in the document you usually use or on paper. You can use a real or imagined example. This page does not collect or save your writing.</p>
+      <h1>Writing 3</h1>
+      <p>C2 Proficiency Part 2-style practice · 15-minute start</p>
     </header>
 
     <section class="stage" id="welcome" aria-labelledby="welcome-title">
-      <h2 id="welcome-title">Start with an everyday question</h2>
-      <p class="stage-intro">The next screen shows two prompts. Choose one to start the 15-minute timer. It will not stop your writing when it ends.</p>
+      <h2 class="sr-only" id="welcome-title">Start practice</h2>
       <button class="primary" id="start-practice" type="button">Start practice</button>
+      <p class="fine-print">Write on paper or in your document. Nothing is saved here.</p>
     </section>
 
     <section class="stage" id="prompt-stage" aria-labelledby="prompt-stage-title" hidden>
-      <h2 id="prompt-stage-title" tabindex="-1">Choose one prompt</h2>
-      <p class="stage-intro">Choose the prompt you want to explore. Your 15-minute timer starts when you choose.</p>
+      <h2 id="prompt-stage-title" tabindex="-1">Choose a task</h2>
       <div class="prompt-grid" id="prompt-options"></div>
-      <button class="secondary" id="new-pair" type="button">Show another pair</button>
+      <button class="secondary" id="new-pair" type="button">Another pair</button>
     </section>
 
     <section class="stage" id="writing-stage" aria-labelledby="writing-title" hidden>
@@ -287,32 +266,29 @@
         <aside class="timer-card" aria-label="Writing timer">
           <p class="eyebrow">Time remaining</p>
           <time class="timer-value" id="timer-value" role="timer" aria-live="off">15:00</time>
-          <p class="timer-help" id="timer-help">Keep writing at your own pace. You can continue after the timer ends.</p>
           <p class="timer-message" id="timer-message" role="status" aria-live="polite" hidden></p>
         </aside>
 
         <div>
-          <p class="eyebrow">Your prompt</p>
           <h2 id="writing-title" tabindex="-1"></h2>
           <p class="writing-prompt" id="writing-prompt"></p>
 
           <details id="language-details">
-            <summary>Show five optional words or phrases</summary>
+            <summary>Optional words and phrases</summary>
             <div class="language-content">
-              <p>Choose one or two if they fit your ideas. You do not need to use them.</p>
+              <p>Use one or two if they fit.</p>
               <ul class="language-list" id="language-list"></ul>
             </div>
           </details>
 
           <div class="writing-actions">
-            <button class="secondary" id="choose-another" type="button">Choose another prompt</button>
+            <button class="secondary" id="choose-another" type="button">Choose another task</button>
           </div>
-          <p class="footnote">Keep writing in your document or on paper. The page does not save your work.</p>
         </div>
       </div>
     </section>
 
-    <noscript><p class="stage timer-message">This page needs JavaScript (a browser feature) to show the prompts and run the timer. Turn it on to use the page.</p></noscript>
+    <noscript><p class="stage timer-message">Turn on JavaScript to choose a task and run the timer.</p></noscript>
   </main>
 
   <script>
@@ -320,151 +296,150 @@
 
     const prompts = [
       {
-        id: "ordinary-day",
-        title: "Make an ordinary day easier",
-        prompt: "What small change could make an ordinary day easier? Describe what it would improve and what it might complicate.",
+        id: "study-spaces",
+        format: "Article",
+        prompt: "The student magazine is preparing an issue on places to study between classes. As a student who uses these spaces, write an article for fellow students to help them choose where to work. Describe one place, explain what helps or hinders study there, and suggest one improvement.",
         language: [
-          { term: "streamline", kind: "verb", meaning: "make a process simpler and more efficient" },
-          { term: "recurring", kind: "adjective", meaning: "happening repeatedly, often at regular times" },
-          { term: "interruption", kind: "noun", meaning: "something that briefly stops an activity" },
-          { term: "manageable", kind: "adjective", meaning: "possible to handle" },
-          { term: "free up time", kind: "phrase", meaning: "make time available for something else" }
+          { term: "communal", kind: "adjective", meaning: "shared by a group" },
+          { term: "amenity", kind: "noun", meaning: "a useful feature of a place" },
+          { term: "conducive to", kind: "phrase", meaning: "helping something happen" },
+          { term: "distraction", kind: "noun", meaning: "something that takes your attention away" },
+          { term: "make better use of", kind: "phrase", meaning: "use more effectively" }
         ]
       },
       {
-        id: "welcoming-place",
-        title: "A welcoming place",
-        prompt: "What makes a public or shared place comfortable to use? Consider what people notice first and what makes them want to stay.",
+        id: "skills-outside-class",
+        format: "Article",
+        prompt: "A student magazine is collecting articles on skills learned outside class. As a student with experience of one such activity, write an article for fellow students about its value. Describe the activity, explain one skill it develops, and show how that skill could help after graduation.",
         language: [
-          { term: "atmosphere", kind: "noun", meaning: "the mood that a place creates" },
-          { term: "accessible", kind: "adjective", meaning: "easy for different people to enter and use" },
-          { term: "well-maintained", kind: "adjective", meaning: "kept clean and in good condition" },
-          { term: "layout", kind: "noun", meaning: "the way parts of a place are arranged" },
-          { term: "feel at ease", kind: "phrase", meaning: "feel comfortable and relaxed" }
+          { term: "extracurricular", kind: "adjective", meaning: "outside formal lessons" },
+          { term: "transferable skill", kind: "noun phrase", meaning: "a skill useful in different settings" },
+          { term: "initiative", kind: "noun", meaning: "the ability to act without being told" },
+          { term: "perseverance", kind: "noun", meaning: "continued effort despite difficulty" },
+          { term: "apply", kind: "verb", meaning: "use in a particular situation" }
         ]
       },
       {
-        id: "free-day",
-        title: "A day without a plan",
-        prompt: "Is a free day better with a plan or without one? Explore what each approach can offer and what it can make harder.",
+        id: "weekend-activity",
+        format: "Article",
+        prompt: "A local magazine is preparing a guide to low-cost weekend activities. As a student who knows the area, write an article for local readers recommending one activity. Explain why it is worth trying and suggest how more people could take part.",
         language: [
-          { term: "spontaneity", kind: "noun", meaning: "acting without planning everything in advance" },
-          { term: "flexible", kind: "adjective", meaning: "able to change when needed" },
-          { term: "overcommit", kind: "verb", meaning: "agree to do more than you can manage" },
-          { term: "unwind", kind: "verb", meaning: "relax after effort or pressure" },
-          { term: "leave room for", kind: "phrase", meaning: "keep time or space available for something" }
+          { term: "affordable", kind: "adjective", meaning: "low enough in price for people to pay" },
+          { term: "appeal", kind: "noun", meaning: "the quality that makes something attractive" },
+          { term: "accessible", kind: "adjective", meaning: "easy for people to use or join" },
+          { term: "low-cost", kind: "adjective", meaning: "needing little money" },
+          { term: "broaden participation", kind: "phrase", meaning: "help more people take part" }
         ]
       },
       {
-        id: "useful-object",
-        title: "An underrated object",
-        prompt: "Choose an ordinary object that people take for granted. What does it do well, and how would daily life change without it?",
+        id: "student-events",
+        format: "Report",
+        prompt: "The students' union is planning its programme for next term. As a course representative, write a report for union officers to help them choose events. Assess which current activities students value, identify one group whose needs are not met, and recommend an event.",
         language: [
-          { term: "durable", kind: "adjective", meaning: "able to last through regular use" },
-          { term: "intuitive", kind: "adjective", meaning: "easy to understand without instructions" },
-          { term: "reliable", kind: "adjective", meaning: "working well when it is needed" },
-          { term: "maintenance", kind: "noun", meaning: "the work needed to keep an item working well" },
-          { term: "stand the test of time", kind: "phrase", meaning: "remain useful or valued for a long time" }
+          { term: "turnout", kind: "noun", meaning: "the number of people who attend an event" },
+          { term: "participation", kind: "noun", meaning: "the act of taking part in an activity" },
+          { term: "inclusive", kind: "adjective", meaning: "designed to involve different people" },
+          { term: "cater for", kind: "phrase", meaning: "provide what a person or group needs" },
+          { term: "appeal to", kind: "phrase", meaning: "be attractive or interesting to" }
         ]
       },
       {
-        id: "quality",
-        title: "Paying for quality",
-        prompt: "When is it worth paying more for something that lasts? Use a real or imagined example to explore the choice.",
+        id: "cycle-parking",
+        format: "Report",
+        prompt: "The university board is reviewing cycle parking on campus. As a student who cycles to campus, write a report for board members to help them decide what to change. Assess current provision, explain who is affected by its limits, and recommend one improvement.",
         language: [
-          { term: "upfront cost", kind: "noun phrase", meaning: "the amount paid at the beginning" },
-          { term: "repairable", kind: "adjective", meaning: "possible to fix when damaged" },
-          { term: "replacement", kind: "noun", meaning: "a new item that takes the place of an old one" },
-          { term: "long-lasting", kind: "adjective", meaning: "remaining useful for a long time" },
-          { term: "good value over time", kind: "phrase", meaning: "worth the cost because it stays useful" }
+          { term: "provision", kind: "noun", meaning: "something supplied or made available" },
+          { term: "secure", kind: "adjective", meaning: "safe from theft or harm" },
+          { term: "sheltered", kind: "adjective", meaning: "protected from weather" },
+          { term: "commuter", kind: "noun", meaning: "someone who travels regularly to work or study" },
+          { term: "allocate funds", kind: "phrase", meaning: "set money aside for a purpose" }
         ]
       },
       {
-        id: "useful-advice",
-        title: "Advice that works",
-        prompt: "What makes advice easy to follow? Explain what it needs to include and how someone might use it.",
+        id: "welcome-activities",
+        format: "Report",
+        prompt: "The programme committee wants to improve welcome activities for new students. As a first-year mentor, write a report for committee members to guide next year's programme. Evaluate which activities help students settle in, identify a gap, and recommend two changes.",
         language: [
-          { term: "actionable", kind: "adjective", meaning: "giving someone a clear step to take" },
-          { term: "specific", kind: "adjective", meaning: "naming an exact action or situation" },
-          { term: "realistic", kind: "adjective", meaning: "possible to do in real conditions" },
-          { term: "reassurance", kind: "noun", meaning: "words that reduce someone's uncertainty" },
-          { term: "put into practice", kind: "phrase", meaning: "use an idea rather than only discuss it" }
+          { term: "orientation", kind: "noun", meaning: "an introduction to a new place or programme" },
+          { term: "belonging", kind: "noun", meaning: "the feeling of being accepted in a group" },
+          { term: "signpost", kind: "verb", meaning: "show someone where to find help or information" },
+          { term: "transition", kind: "noun", meaning: "a change from one situation to another" },
+          { term: "retain", kind: "verb", meaning: "continue to have or keep" }
         ]
       },
       {
-        id: "shared-space",
-        title: "A shared space",
-        prompt: "How can a shared place stay comfortable and useful for different people? Choose a home, campus, workplace or public space.",
+        id: "film-setting",
+        format: "Review",
+        prompt: "An online magazine invites reviews of documentaries that change how viewers see everyday objects. As someone who watched one, write a review for readers choosing a documentary. Explain its subject, assess how well the film holds attention, and say who would enjoy it.",
         language: [
-          { term: "considerate", kind: "adjective", meaning: "thinking about how others are affected" },
-          { term: "clutter", kind: "noun", meaning: "too many things taking up a space" },
-          { term: "communal", kind: "adjective", meaning: "shared by a group of people" },
-          { term: "compromise", kind: "noun", meaning: "an agreement where each side gives up something" },
-          { term: "leave it in good condition", kind: "phrase", meaning: "keep a place ready for the next person" }
+          { term: "setting", kind: "noun", meaning: "the place and time in which a story happens" },
+          { term: "portrayal", kind: "noun", meaning: "the way a person or place is shown" },
+          { term: "convincing", kind: "adjective", meaning: "believable" },
+          { term: "nuanced", kind: "adjective", meaning: "showing careful differences or details" },
+          { term: "resonate with", kind: "phrase", meaning: "create a feeling of connection with" }
         ]
       },
       {
-        id: "hobby",
-        title: "Keeping a hobby",
-        prompt: "What makes a hobby worth keeping when time is short? Describe its value and what can make it hard to continue.",
+        id: "arts-event",
+        format: "Review",
+        prompt: "A local arts magazine invites reviews of events that may interest students. As someone who attended an exhibition or performance, write a review for student readers to help them decide whether to go. Describe a memorable feature and assess the event.",
         language: [
-          { term: "absorbing", kind: "adjective", meaning: "holding your attention" },
-          { term: "low-commitment", kind: "adjective", meaning: "not requiring much time or effort over a long period" },
-          { term: "rewarding", kind: "adjective", meaning: "giving a sense of satisfaction" },
-          { term: "routine", kind: "noun", meaning: "a usual way of doing something" },
-          { term: "lose track of time", kind: "phrase", meaning: "be so interested that you do not notice time passing" }
+          { term: "immersive", kind: "adjective", meaning: "making the audience feel involved" },
+          { term: "pace", kind: "noun", meaning: "the speed or flow of an event" },
+          { term: "compelling", kind: "adjective", meaning: "holding your attention" },
+          { term: "interpretation", kind: "noun", meaning: "the way an artist presents an idea" },
+          { term: "accessible to", kind: "phrase", meaning: "easy for someone to understand or experience" }
         ]
       },
       {
-      id: "everyday-technology",
-        title: "Small changes in technology",
-        prompt: "Think of an everyday task that technology has changed. Has the change made the task easier, more complicated or both?",
+        id: "explainer-book",
+        format: "Review",
+        prompt: "A student magazine is reviewing non-fiction books that explain a subject to general readers. As a reader of one such book, write a review for fellow students choosing a book to read. Explain the subject, assess how clearly the author presents it, and say who would find it useful.",
         language: [
-          { term: "automate", kind: "verb", meaning: "use technology to do a routine task" },
-          { term: "repetitive", kind: "adjective", meaning: "involving the same action many times" },
-          { term: "convenient", kind: "adjective", meaning: "easy to use or helpful" },
-          { term: "trade-off", kind: "noun", meaning: "a choice that gives one benefit but loses another" },
-          { term: "save a few steps", kind: "phrase", meaning: "make a process shorter or easier" }
+          { term: "non-specialist", kind: "noun", meaning: "someone without expert knowledge" },
+          { term: "well-researched", kind: "adjective", meaning: "based on careful investigation" },
+          { term: "engaging", kind: "adjective", meaning: "interesting and able to hold attention" },
+          { term: "oversimplify", kind: "verb", meaning: "make something seem simpler than it is" },
+          { term: "clarity", kind: "noun", meaning: "the quality of being easy to understand" }
         ]
       },
       {
-      id: "convenience",
-        title: "Choosing convenience",
-        prompt: "When should convenience matter more than saving money? Consider who benefits and what the choice may cost over time.",
+        id: "cafe-food-waste",
+        format: "Formal letter",
+        prompt: "The local newspaper invites readers to suggest how cafés in town could reduce food waste. As a regular customer, write a formal letter to the editor for local readers. Describe one source of waste, propose a practical change, and explain its likely effect.",
         language: [
-          { term: "cost-effective", kind: "adjective", meaning: "giving good results for the money spent" },
-          { term: "budget", kind: "noun", meaning: "the amount of money available to spend" },
-          { term: "practical", kind: "adjective", meaning: "useful in a real situation" },
-          { term: "affordability", kind: "noun", meaning: "whether something is within someone's budget" },
-          { term: "on balance", kind: "phrase", meaning: "after considering the advantages and disadvantages" }
+          { term: "surplus", kind: "noun", meaning: "more of something than is needed" },
+          { term: "dispose of", kind: "phrase", meaning: "throw something away" },
+          { term: "perishable", kind: "adjective", meaning: "likely to go bad quickly" },
+          { term: "portion", kind: "noun", meaning: "an amount of food served to one person" },
+          { term: "reduce waste", kind: "phrase", meaning: "use or throw away less" }
         ]
       },
       {
-        id: "short-journey",
-        title: "A short journey",
-        prompt: "What can make a short trip feel worthwhile? Describe a place, moment or small discovery that could make it memorable.",
+        id: "outdoor-space",
+        format: "Formal letter",
+        prompt: "A community centre is asking regular visitors how to improve its outdoor space. As a visitor, write a formal letter to the centre director recommending a change. Describe how the space is used now, suggest one improvement, and explain who would benefit.",
         language: [
-          { term: "detour", kind: "noun", meaning: "a different route, often used when your usual route is blocked" },
-          { term: "scenic", kind: "adjective", meaning: "having attractive views of the surrounding area" },
-          { term: "memorable", kind: "adjective", meaning: "easy to remember" },
-          { term: "unexpected", kind: "adjective", meaning: "not planned or predicted" },
-          { term: "off the beaten track", kind: "phrase", meaning: "away from popular places and routes" }
+          { term: "versatile", kind: "adjective", meaning: "useful for many different purposes" },
+          { term: "communal", kind: "adjective", meaning: "shared by a group" },
+          { term: "sheltered", kind: "adjective", meaning: "protected from weather" },
+          { term: "maintenance", kind: "noun", meaning: "work needed to keep something in good condition" },
+          { term: "accommodate", kind: "verb", meaning: "provide enough space for" }
         ]
       },
       {
-        id: "lasting-habit",
-        title: "A habit that lasts",
-        prompt: "Why do some habits last while others fade? Explore what helps a person keep going or return after a pause.",
+        id: "arts-attendance",
+        format: "Formal letter",
+        prompt: "The local arts council wants to attract more students to its events. As a regular attendee, write a formal letter to council members suggesting how to do this. Identify one reason students may not attend, propose an initiative, and explain how it could reach them.",
         language: [
-          { term: "consistency", kind: "noun", meaning: "doing something in a steady way over time" },
-          { term: "cue", kind: "noun", meaning: "a sign that reminds someone to act" },
-          { term: "lapse", kind: "noun", meaning: "a short period when you stop following a usual pattern" },
-          { term: "resume", kind: "verb", meaning: "start again after a pause" },
-          { term: "get back into a routine", kind: "phrase", meaning: "return to doing something regularly" }
+          { term: "attendance", kind: "noun", meaning: "the number of people who go to an event" },
+          { term: "barrier", kind: "noun", meaning: "something that prevents people from taking part" },
+          { term: "initiative", kind: "noun", meaning: "a planned action to improve a situation" },
+          { term: "target audience", kind: "noun phrase", meaning: "the group an event or message is meant for" },
+          { term: "widen the appeal", kind: "phrase", meaning: "make something attractive to more people" }
         ]
       }
     ];
-
     const welcome = document.querySelector("#welcome");
     const promptStage = document.querySelector("#prompt-stage");
     const writingStage = document.querySelector("#writing-stage");
@@ -491,7 +466,10 @@
     function makePair() {
       const available = prompts.filter((item) => !lastPairIds.includes(item.id));
       const pool = available.length >= 2 ? available : prompts;
-      currentPair = shuffle(pool).slice(0, 2);
+      const ordered = shuffle(pool);
+      const first = ordered[0];
+      const second = ordered.find((item) => item.format !== first.format);
+      currentPair = [first, second];
       lastPairIds = currentPair.map((item) => item.id);
       renderPair();
     }
@@ -510,7 +488,7 @@
         const text = document.createElement("span");
         button.type = "button";
         button.className = "prompt-choice";
-        title.textContent = item.title;
+        title.textContent = `${item.format} · 280–320 words`;
         text.textContent = item.prompt;
         button.append(title, text);
         button.addEventListener("click", () => choosePrompt(item));
@@ -536,7 +514,7 @@
 
     function choosePrompt(item) {
       stopTimer();
-      document.querySelector("#writing-title").textContent = item.title;
+      document.querySelector("#writing-title").textContent = `${item.format} · 280–320 words`;
       document.querySelector("#writing-prompt").textContent = item.prompt;
       renderLanguage(item.language);
       languageDetails.open = false;
@@ -572,7 +550,7 @@
       if (remaining === 0) {
         stopTimer();
         timerMessage.hidden = false;
-        timerMessage.textContent = "Your 15 minutes are up. Keep writing if you wish.";
+        timerMessage.textContent = "15 minutes are up. Stop or keep writing.";
       }
     }
 
